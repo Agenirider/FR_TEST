@@ -1,7 +1,6 @@
 import logging
 import traceback
 from datetime import datetime
-from email.mime.image import MIMEImage
 from threading import Thread
 
 import requests
@@ -26,6 +25,8 @@ def send_message(message_object_):
                   }
 
     api_url: str = f'https://probe.fbrq.cloud/v1/send/{message_object_.id}'
+    print(f'CALL API {api_url}')
+
     session.mount(api_url, api_adapter)
     headers = {"Content-Type": "application/json", "Authorization": 'Bearer ' + API_TOKEN}
     message_object_.status = 'in_progress'
