@@ -1,0 +1,21 @@
+# Django
+Django==3.2.8
+
+# WSGI
+gunicorn==20.1.0
+
+# DRF
+djangorestframework==3.13.1
+
+# compare objects
+DeepDiff
+
+# Celery
+celery==5.2.3
+
+
+# Swagger
+drf-yasg
+
+# Swagger
+django-rest-swagger

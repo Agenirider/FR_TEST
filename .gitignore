@@ -1,0 +1,16 @@
+env
+venv
+
+/.pytest_cache
+db.sqlite3
+
+.idea
+.vscode
+
+__pycache__
+
+*.log
+api_log.*
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir

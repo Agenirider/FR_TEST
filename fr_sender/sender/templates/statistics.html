@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>TEST TASK STAT</title>
+      </head>
+      <body style="margin: 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 13px; word-spacing: normal;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%"    align="center"
+                 style="margin:0; padding:0; width:100%; max-width: 600px;"
+                 bgcolor="#c7c7c7"
+                 bgcolor="#c7c7c7"
+          >
+              <tr align="center">
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ total_tasks }}
+                  </td>
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ total_messages }}
+                  </td>
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ total_clients }}
+                  </td>
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ messages_done }}
+                  </td>
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ messages_failed }}
+                  </td>
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ messages_created }}
+                  </td>
+                  <td style="text-align: center; padding: 20px 50px 0 50px; font-size: 14px; font-weight: bold">
+                      TASKS {{ messages_in_progress }}
+                  </td>
+              </tr>
+
+          </table>
+      </body>
