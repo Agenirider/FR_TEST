@@ -34,21 +34,7 @@ services:
     networks:
       - net
 
-#  proxy:
-#    container_name: proxy
-#    restart: unless-stopped
-#    build:
-#      context: ./proxy
-#    volumes:
-#      - static_data:/vol/static
-#    expose:
-#      - "8000"
-#    ports:
-#      - '8000:8000'
-#    networks:
-#      - net
-
-  celery_worker:
+  celery-worker:
     build: ./fr_sender/
     container_name: celery_worker
     hostname: celery_worker
@@ -62,13 +48,14 @@ services:
     volumes:
       - fr_sender:/code/fr_sender
       - /etc/localtime:/etc/localtime:ro
+      - /var/logs:/var/logs
     depends_on:
-      - fr_sender
       - redis
+      - fr_sender
     networks:
       - net
 
-  celery_beat:
+  celery-beat:
     build: ./fr_sender/
     container_name: celery_beat
     hostname: celery_beat
@@ -82,11 +69,26 @@ services:
     volumes:
       - fr_sender:/code/fr_sender
       - /etc/localtime:/etc/localtime:ro
+      - /var/logs:/var/logs
     links:
       - celery-worker
     depends_on:
-      - fr_sender
       - redis
+      - fr_sender
+    networks:
+      - net
+
+  proxy:
+    container_name: proxy
+    restart: unless-stopped
+    build:
+      context: ./proxy
+    volumes:
+      - static_data:/vol/static
+    expose:
+      - "8000"
+    ports:
+      - '8000:8000'
     networks:
       - net
 
@@ -95,8 +97,6 @@ services:
     build:
       context: ./redis
     restart: always
-    volumes:
-    - ./storage/redis/data:/data
     expose:
       - "6379"
     networks:

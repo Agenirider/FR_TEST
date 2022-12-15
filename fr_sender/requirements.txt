@@ -13,6 +13,8 @@ DeepDiff
 # Celery
 celery==5.2.3
 
+# Redis access
+redis
 
 # Swagger
 drf-yasg

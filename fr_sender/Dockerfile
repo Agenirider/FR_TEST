@@ -16,7 +16,7 @@ ENV PYTHONUNBUFFERED 1
 
 # install dependencies
 RUN apk update \
-    && apk add --virtual build-deps gcc python3-dev musl-dev \
+    && apk add --virtual build-deps gcc python3-dev musl-dev mariadb-connector-c-dev \
     && apk add mysql-client \
     && pip install --upgrade pip \
     && pip install pymysql mysqlclient --no-cache-dir \

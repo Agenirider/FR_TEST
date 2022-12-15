@@ -18,15 +18,12 @@ from django.urls import path, include, re_path
 from django.views.generic import RedirectView
 from rest_framework import permissions
 
-from fr_sender.settings import DEBUG
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('sender.urls')),
 ]
 
-if DEBUG:
-    urlpatterns.append(path('', RedirectView.as_view(url='/admin')))
+urlpatterns.append(path('', RedirectView.as_view(url='/admin')))
 
 
 from drf_yasg.views import get_schema_view
